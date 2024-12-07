@@ -27,3 +27,4 @@ for i in range(1, context_size+1):
     context = sample_text[:i]
     target = sample_text[i]
     print(f'context: {tokenizer.decode(context)} ---> target: {tokenizer.decode([target])}')
+
