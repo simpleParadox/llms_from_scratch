@@ -13,8 +13,14 @@ def create_dataloader(txt, batch_size=4, max_length=256, stride=128, shuffle=Tru
 
 with open('the-verdict.txt', 'r', encoding='utf-8') as file:
     text = file.read()
-    
-dataloader = create_dataloader(text, max_length=4, stride=1, shuffle=False)
+
+
+# Have the strides set correctly to prevent overlap between multiple input sequences - this will prevent overfitting. 
+dataloader = create_dataloader(text, max_length=4, stride=4, shuffle=False)
+
+
+# You will see that the data in the input (first element of the tuple) and target (second element of the tuple) tensors are the same.# You will see that the data in the input (first element of the tuple) and target (second element of the tuple) tensors are the same.# You will see that the data in the input (first element of the tuple) and target (second element of the tuple)
+# are shifted by one. 
 
 data_iter = iter(dataloader)  # Create an iterator from the dataloader.
 first_batch = next(data_iter) # Get the first batch from the iterator.
