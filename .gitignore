@@ -1,0 +1,7 @@
+chapter_7/gpt2/
+
+chapter_5/gpt2/
+
+chapter_2/__pycache__/
+*/__pycache__/
+*.pth

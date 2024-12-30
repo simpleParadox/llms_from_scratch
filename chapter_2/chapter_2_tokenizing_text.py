@@ -36,6 +36,8 @@ result = [item.strip() for item in result if item.strip()]
 
 all_words = sorted(set(result))
 vocab_size = len(all_words) # Unique words.
+
+# The following is a simple way to create token IDs.
 vocab = {token: integer for integer, token in enumerate(all_words)} # Just assigning a unique integer to each word by using the enumerate function.
 
 # print(vocab)

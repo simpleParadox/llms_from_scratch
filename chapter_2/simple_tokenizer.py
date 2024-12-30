@@ -1,8 +1,9 @@
+# Implementing a simple tokenizer from scratch.
 from chapter_2_tokenizing_text import vocab, all_words
 import re
 class SimpleTokenizerV1:
     def __init__(self, vocabulary):
-        self.str_to_int = vocabulary
+        self.str_to_int = vocabulary # This is mapping from the word to the integer.
         self.int_to_str = {v: k for k, v in vocabulary.items()}
         
         
@@ -42,7 +43,8 @@ print(tokenizer.decode(ids))
 # Let's modify the tokenizer to handle these special tokens.
 all_words.extend(["<|endoftext|>", "<UNK>"])
 
-# Create new vocabulary with the extended tokens.
+# Create new vocabulary with the extended tokens. This is necessary to 
+# handle out of vocabulary words.
 vocab = {token: integer for integer, token in enumerate(all_words)}
 print("Length of the new vocabulary: ", len(vocab))
 

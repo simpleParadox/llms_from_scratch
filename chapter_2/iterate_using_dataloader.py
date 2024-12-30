@@ -1,4 +1,7 @@
 import tiktoken
+import sys
+sys.path.append("D:\llms_from_scratch\\")
+sys.path.append("D:\llms_from_scratch\\chapter_2\\")
 from data_loading import GPTDatasetV1
 from torch.utils.data import DataLoader
 
@@ -11,18 +14,18 @@ def create_dataloader(txt, batch_size=4, max_length=256, stride=128, shuffle=Tru
     return dataloader
 
 
-with open('the-verdict.txt', 'r', encoding='utf-8') as file:
-    text = file.read()
+# with open('the-verdict.txt', 'r', encoding='utf-8') as file:
+#     text = file.read()
 
 
-# Have the strides set correctly to prevent overlap between multiple input sequences - this will prevent overfitting. 
-dataloader = create_dataloader(text, max_length=4, stride=4, shuffle=False)
+# # Have the strides set correctly to prevent overlap between multiple input sequences - this will prevent overfitting. 
+# dataloader = create_dataloader(text, max_length=4, stride=4, shuffle=False)
 
 
-# You will see that the data in the input (first element of the tuple) and target (second element of the tuple) tensors are the same.# You will see that the data in the input (first element of the tuple) and target (second element of the tuple) tensors are the same.# You will see that the data in the input (first element of the tuple) and target (second element of the tuple)
-# are shifted by one. 
+# # You will see that the data in the input (first element of the tuple) and target (second element of the tuple) tensors are the same.# You will see that the data in the input (first element of the tuple) and target (second element of the tuple) tensors are the same.# You will see that the data in the input (first element of the tuple) and target (second element of the tuple)
+# # are shifted by one. 
 
-data_iter = iter(dataloader)  # Create an iterator from the dataloader.
-first_batch = next(data_iter) # Get the first batch from the iterator.
+# data_iter = iter(dataloader)  # Create an iterator from the dataloader.
+# first_batch = next(data_iter) # Get the first batch from the iterator.
 
-print("First batch: ", first_batch)
+# print("First batch: ", first_batch)

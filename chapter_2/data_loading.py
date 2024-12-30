@@ -6,7 +6,7 @@ class GPTDatasetV1(Dataset):
         self.input_ids = []
         self.target_ids = []
         
-        token_ids = tokenizer.encode(txt)
+        token_ids = tokenizer.encode(txt) # Convert the text to token IDs.
         
         for i in range(0, len(token_ids) - max_length, stride):
             input_chunk = token_ids[i: i + max_length]
